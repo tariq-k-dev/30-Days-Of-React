@@ -28,6 +28,7 @@
     - [Injecting data to JSX in React Component](#injecting-data-to-jsx-in-react-component)
     - [Further on Functional components](#further-on-functional-components)
 - [Exercises: Components](#exercises-components)
+- [<<<<<<< HEAD](#-head)
 
 # Components
 
@@ -57,13 +58,14 @@ A JavaScript function could be either a regular function or an arrow function. T
 ```js
 const getUserInfo = (firstName, lastName, country, title, skills) => {
   return `${firstName} ${lastName},  a ${title} developer base in ${country}. He knows ${skills.join(
-    ' '
-  )} `
-}
+    " "
+  )} `;
+};
 // When we call this function we need parameters
+const skills = ["HTML", "CSS", "JS", "React"];
 console.log(
-  getUserInfo('Asabeneh', 'Yetayeh', 'Finland', 'FullStack Developer')
-)
+  getUserInfo("Asabeneh", "Yetayeh", "Finland", "FullStack Developer", skills)
+);
 ```
 
 ## JavaScript Class
@@ -74,30 +76,30 @@ Class is a blue print of an object. We instantiate a class to create different o
 class Parent {
   constructor(firstName, lastName, country, title) {
     // we bind the params with this class object using this keyword
-    this.firstName = firstName
-    this.lastName = lastName
-    this.country = country
-    this.title = title
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.country = country;
+    this.title = title;
   }
   getPersonInfo() {
-    return `${this.firstName} ${this.lastName},  a ${this.title} developer base in ${this.country} `
+    return `${this.firstName} ${this.lastName},  a ${this.title} developer base in ${this.country} `;
   }
   parentMethod() {
     // code goes here
   }
 }
 
-const p1 = Parent('Asabeneh', 'Yetayeh', 'Finland', 'FullStack Developer')
+const p1 = Parent("Asabeneh", "Yetayeh", "Finland", "FullStack Developer");
 
 class Child extends Parent {
   constructor(firstName, lastName, country, title, skills) {
-    super(firstName, lastName, country, title)
-    this.skills = skills
+    super(firstName, lastName, country, title);
+    this.skills = skills;
     // we bind the child params with the this keyword to this child object
   }
   getSkills() {
-    let len = this.skills.length
-    return len > 0 ? this.skills.join(' ') : 'No skills found'
+    let len = this.skills.length;
+    return len > 0 ? this.skills.join(" ") : "No skills found";
   }
   childMethod() {
     // code goes here
@@ -105,12 +107,12 @@ class Child extends Parent {
 }
 
 const child = new Child(
-  'Asabeneh',
-  'Yetayeh',
-  'Finland',
-  'FullStack Developer',
-  ['HTML', 'CSS', 'JS', 'React']
-)
+  "Asabeneh",
+  "Yetayeh",
+  "Finland",
+  "FullStack Developer",
+  ["HTML", "CSS", "JS", "React"]
+);
 ```
 
 We covered function and class in brief and React component is made from JavaScript functions or class. Now, lets make React component.
@@ -124,10 +126,10 @@ Using a JavaScript function we can make a functional React component.
 ```js
 // React component syntax
 // it can be arrow function, function declaration or function expression
-const jsx = <tag> Content </tag>
+const jsx = <tag> Content </tag>;
 const ComponentName = () => {
-  return jsx
-}
+  return jsx;
+};
 ```
 
 The following expression is a JSX element.
@@ -144,12 +146,12 @@ const header = (
       <small>Oct 3, 2020</small>
     </div>
   </header>
-)
+);
 
 // React Component
 const Header = () => {
-  return header
-}
+  return header;
+};
 
 // or we can just return the JSX
 
@@ -164,8 +166,8 @@ const Header = () => {
         <small>Oct 3, 2020</small>
       </div>
     </header>
-  )
-}
+  );
+};
 
 // Even th above code can be written like this
 // Explicitly returning the JSX
@@ -179,7 +181,7 @@ const Header = () => (
       <small>Oct 3, 2020</small>
     </div>
   </header>
-)
+);
 ```
 
 ### Rendering components
@@ -190,8 +192,8 @@ Let's render first the _Header_ component.
 
 ```js
 // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
 // Header Component
 const Header = () => (
@@ -204,20 +206,20 @@ const Header = () => (
       <small>Oct 3, 2020</small>
     </div>
   </header>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(<Header />, rootElement)
+ReactDOM.render(<Header />, rootElement);
 ```
 
 Now, let's create an App component which hold the Header, Main and Footer. Then the App component will be render on the DOM.
 
 ```js
 // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
-import asabenehImage from './images/asabeneh.jpg'
+import React from "react";
+import ReactDOM from "react-dom";
+import asabenehImage from "./images/asabeneh.jpg";
 
 // Header Component
 const Header = () => (
@@ -230,7 +232,7 @@ const Header = () => (
       <small>Oct 3, 2020</small>
     </div>
   </header>
-)
+);
 
 // User Card Component
 const UserCard = () => (
@@ -238,14 +240,14 @@ const UserCard = () => (
     <img src={asabenehImage} alt='asabeneh image' />
     <h2>Asabeneh Yetayeh</h2>
   </div>
-)
+);
 
 // TechList Component
 const TechList = () => {
-  const techs = ['HTML', 'CSS', 'JavaScript']
-  const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
-  return techsFormatted
-}
+  const techs = ["HTML", "CSS", "JavaScript"];
+  const techsFormatted = techs.map(tech => <li key={tech}>{tech}</li>);
+  return techsFormatted;
+};
 
 // Main Component
 const Main = () => (
@@ -258,7 +260,7 @@ const Main = () => (
       <UserCard />
     </div>
   </main>
-)
+);
 
 // Footer Component
 const Footer = () => (
@@ -267,7 +269,7 @@ const Footer = () => (
       <p>Copyright 2020</p>
     </div>
   </footer>
-)
+);
 
 // The App, or the parent or the container component
 const App = () => (
@@ -276,11 +278,11 @@ const App = () => (
     <Main />
     <Footer />
   </div>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(<App />, rootElement)
+ReactDOM.render(<App />, rootElement);
 ```
 
 ![Rendering Components](../images/rendering_componnets.png)
@@ -292,15 +294,15 @@ So far, we used static data on the JSX elements now let's pass different data ty
 In this section we only inject only strings
 
 ```js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-const welcome = 'Welcome to 30 Days Of React'
-const title = 'Getting Started React'
-const subtitle = 'JavaScript Library'
-const firstName = 'Asabeneh'
-const lastName = 'Yetayeh'
-const date = 'Oct 3, 2020'
+const welcome = "Welcome to 30 Days Of React";
+const title = "Getting Started React";
+const subtitle = "JavaScript Library";
+const firstName = "Asabeneh";
+const lastName = "Yetayeh";
+const date = "Oct 3, 2020";
 
 // JSX element, header
 const header = () => {
@@ -316,27 +318,27 @@ const header = () => {
         <small>Date: {date}</small>
       </div>
     </header>
-  )
-}
-const rootElement = document.getElementById('root')
+  );
+};
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(<Header />, rootElement)
+ReactDOM.render(<Header />, rootElement);
 ```
 
 Similar to the Header component we can implement to Main and Footer component.
 
 ```js
 // To get the root element from the HTML document
-const rootElement = document.querySelector('.root')
+const rootElement = document.querySelector(".root");
 // JSX element, header
-const welcome = 'Welcome to 30 Days Of React Challenge'
-const title = 'Getting Started React'
-const subtitle = 'JavaScript Library'
+const welcome = "Welcome to 30 Days Of React Challenge";
+const title = "Getting Started React";
+const subtitle = "JavaScript Library";
 const author = {
-  firstName: 'Asabeneh',
-  lastName: 'Yetayeh',
-}
-const date = 'Oct 2, 2020'
+  firstName: "Asabeneh",
+  lastName: "Yetayeh",
+};
+const date = "Oct 2, 2020";
 
 // JSX element, header
 const Header = () => (
@@ -351,26 +353,26 @@ const Header = () => (
       <small>Date: {date}</small>
     </div>
   </header>
-)
+);
 
-const numOne = 3
-const numTwo = 2
+const numOne = 3;
+const numTwo = 2;
 
 const result = (
   <p>
     {numOne} + {numTwo} = {numOne + numTwo}
   </p>
-)
+);
 
-const yearBorn = 1820
-const currentYear = 2020
-const age = currentYear - yearBorn
+const yearBorn = 1820;
+const currentYear = 2020;
+const age = currentYear - yearBorn;
 const personAge = (
   <p>
-    {' '}
+    {" "}
     {author.firstName} {author.lastName} is {age} years old
   </p>
-)
+);
 
 // User Card Component
 const UserCard = () => (
@@ -380,11 +382,11 @@ const UserCard = () => (
       {author.firstName} {author.lastName}
     </h2>
   </div>
-)
+);
 
 // JSX element, main
-const techs = ['HTML', 'CSS', 'JavaScript']
-const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
+const techs = ["HTML", "CSS", "JavaScript"];
+const techsFormatted = techs.map(tech => <li key={tech}>{tech}</li>);
 
 // JSX element, main
 const Main = () => (
@@ -392,7 +394,7 @@ const Main = () => (
     <div className='main-wrapper'>
       <div>
         <p>
-          Prerequisite to get started{' '}
+          Prerequisite to get started{" "}
           <strong>
             <em>react.js</em>
           </strong>
@@ -405,9 +407,9 @@ const Main = () => (
       <UserCard />
     </div>
   </main>
-)
+);
 
-const copyRight = '2020'
+const copyRight = "2020";
 
 // JSX element, footer
 const Footer = () => (
@@ -416,7 +418,7 @@ const Footer = () => (
       <p>Copyright &copy;{copyRight}</p>
     </div>
   </footer>
-)
+);
 
 // JSX element, app
 const app = () => (
@@ -425,10 +427,10 @@ const app = () => (
     <Main />
     <Footer />
   </div>
-)
+);
 
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(<App />, rootElement)
+ReactDOM.render(<App />, rootElement);
 ```
 
 ### Further on Functional components
@@ -437,7 +439,7 @@ We have transformed all the JSX elements of Day 2 to functional components and b
 returns only a single HTML as JSX is considered as a small component. A button component or an alert box component or just an input field component.
 
 ```js
-const Button = () => <button>action</button>
+const Button = () => <button>action</button>;
 ```
 
 The _Button_ component is made of a single HTML button element.
@@ -445,36 +447,36 @@ Let's style this button using JavaScript style object. All CSS properties should
 
 ```js
 const buttonStyles = {
-  padding: '10px 20px',
-  background: 'rgb(0, 255, 0',
-  border: 'none',
+  padding: "10px 20px",
+  background: "rgb(0, 255, 0",
+  border: "none",
   borderRadius: 5,
-}
-const Button = () => <button style={buttonStyles}> action </button>
+};
+const Button = () => <button style={buttonStyles}> action </button>;
 ```
 
 The Button component is a dumb component because it does not take any parameter and we can not change the action text dynamically. We need to pass a props to the button to change the value dynamically. We will see props in the next section. Before we close today's lesson let's make another more functional component which displays a random hexadecimal number.
 
 ```js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
 // Hexadecimal color generator
 const hexaColor = () => {
-  let str = '0123456789abcdef'
-  let color = ''
+  let str = "0123456789abcdef";
+  let color = "";
   for (let i = 0; i < 6; i++) {
-    let index = Math.floor(Math.random() * str.length)
-    color += str[index]
+    let index = Math.floor(Math.random() * str.length);
+    color += str[index];
   }
-  return '#' + color
-}
+  return "#" + color;
+};
 
-const HexaColor = () => <div>{hexaColor()}</div>
+const HexaColor = () => <div>{hexaColor()}</div>;
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(<HexaColor />, rootElement)
+ReactDOM.render(<HexaColor />, rootElement);
 ```
 
 # Exercises: Components
@@ -495,4 +497,8 @@ ReactDOM.render(<HexaColor />, rootElement)
 ![Hexadecimal colors](../images/hexadecimal_color_exercise.png)
 
 🎉 CONGRATULATIONS ! 🎉
-[<< Day 3](../30-Days-Of-React/03_Day_Setting_Up/03_day_setting_up.md) | [Day 5 >>](./05_Day_Props/05_props.md)
+<<<<<<< HEAD
+=======
+
+> > > > > > > a1dc4bdeef73651226be356a667670517a52d962
+> > > > > > > [<< Day 3](../30-Days-Of-React/03_Day_Setting_Up/03_day_setting_up.md) | [Day 5 >>](./05_Day_Props/05_props.md)

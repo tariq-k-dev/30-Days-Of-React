@@ -15,7 +15,7 @@
 </div>
 </div>
 
-[<< Day 2](../02_Day_Introduction_to_React/02_introduction_to_react.md) | [Day 4 >>](./04_Day_Component/04_components.m)
+[<< Day 2](../02_Day_Introduction_to_React/02_introduction_to_react.md) | [Day 4 >>](./04_Day_Component/04_components.md)
 
 ![30 Days of React banner](../images/30_days_of_react_banner_day_3.jpg)
 
@@ -65,17 +65,17 @@ In react we do not use link to access modules or packages instead we import the 
 
 ```js
 // math.js
-export const addTwo = (a, b) => a + b
-export const multiply = (a, b) => a * b
-export const subtract = (a, b) => a - b
+export const addTwo = (a, b) => a + b;
+export const multiply = (a, b) => a * b;
+export const subtract = (a, b) => a - b;
 
 export default (function doSomeMath() {
   return {
     addTwo,
     multiply,
     subtract,
-  }
-})()
+  };
+})();
 ```
 
 Now let's import the _math.js_ modules to a different file.
@@ -83,16 +83,16 @@ Now let's import the _math.js_ modules to a different file.
 ```js
 // index.js
 // to import the doSomeMath from the math.js with or without extension
-import doSomeMath from './math.js'
+import doSomeMath from "./math.js";
 
 // to import the other modules
 // since these modules were not exported as default we have to desctructure
-import { addTwo, multiply, subtract } from './math.js'
+import { addTwo, multiply, subtract } from "./math.js";
 
-import * as everything from './math.js' // to import everything renaming
-console.log(addTwo(5, 5))
-console.log(doSomeMath.addTwo(5, 5))
-console.log(everything)
+import * as everything from "./math.js"; // to import everything renaming
+console.log(addTwo(5, 5));
+console.log(doSomeMath.addTwo(5, 5));
+console.log(everything);
 ```
 
 After this, when you see _import React from 'react'_ or _import ReactDOM from 'react-dom'_ you will not be surprised.
@@ -219,13 +219,13 @@ Now lets write code on index.js. First of we should import React and ReactDOM. R
 //index.js
 // importing the react and react-dom package
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-const jsxElement = <h1>This is a JSX element</h1>
-const rootElement = document.getElementById('root')
+const jsxElement = <h1>This is a JSX element</h1>;
+const rootElement = document.getElementById("root");
 
-ReactDOM.render(jsxElement, rootElement)
+ReactDOM.render(jsxElement, rootElement);
 ```
 
 ```html
@@ -266,7 +266,7 @@ If you do not have any bugs your React app will be launched on the browser.
 Let's write more JSX elements and render them on the browser. This expression is a JSX element which is made of h2 HTML element.
 
 ```js
-const title = <h2>Getting Started React</h2>
+const title = <h2>Getting Started React</h2>;
 ```
 
 Let's add more content the previous JSX and change the name to header.
@@ -278,7 +278,7 @@ const header = (
     <h2>Getting Started React</h2>
     <h3>JavaScript Library</h3>
   </header>
-)
+);
 ```
 
 Let's render this to the browser, in order to render we need ReactDOM.
@@ -287,8 +287,8 @@ Let's render this to the browser, in order to render we need ReactDOM.
 //index.js
 // importing the react and react-dom package
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
 const header = (
   <header>
@@ -298,10 +298,10 @@ const header = (
     <p>Asabeneh Yetayeh</p>
     <small>Oct 2, 2020</small>
   </header>
-)
-const rootElement = document.getElementById('root')
+);
+const rootElement = document.getElementById("root");
 
-ReactDOM.render(header, rootElement)
+ReactDOM.render(header, rootElement);
 ```
 
 ![JSX using create react app](../images/rendering_more_jsx_content_create_react_app.png)
@@ -311,8 +311,8 @@ Now, lets add all the JSX we created on Day 2.
 ```js
 //index.js
 // importing the react and react-dom package
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
 // JSX element, header
 const header = (
@@ -323,7 +323,7 @@ const header = (
     <p>Asabeneh Yetayeh</p>
     <small>Oct 2, 2020</small>
   </header>
-)
+);
 
 // JSX element, main
 const main = (
@@ -335,14 +335,14 @@ const main = (
       <li>JavaScript</li>
     </ul>
   </main>
-)
+);
 
 // JSX element, footer
 const footer = (
   <footer>
     <p>Copyright 2020</p>
   </footer>
-)
+);
 
 // JSX element, app, a container or a parent
 const app = (
@@ -351,12 +351,12 @@ const app = (
     {main}
     {footer}
   </div>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
 // ReactDOM has the render method and the render method takes two argument
-ReactDOM.render(app, rootElement)
+ReactDOM.render(app, rootElement);
 // or
 //  ReactDOM.render([header, main, footer], rootElement)
 ```
@@ -369,15 +369,15 @@ Let's apply style to the JSX elements. We can style JSX either using inline, int
 
 ```js
 // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
 const headerStyles = {
-  backgroundColor: '#61DBFB',
-  fontFamily: 'Helvetica Neue',
+  backgroundColor: "#61DBFB",
+  fontFamily: "Helvetica Neue",
   padding: 25,
   lineHeight: 1.5,
-}
+};
 
 // JSX element, header
 const header = (
@@ -390,12 +390,12 @@ const header = (
       <small>Oct 2, 2020</small>
     </div>
   </header>
-)
+);
 
 // JSX element, main
 const mainStyles = {
-  backgroundColor: '#F3F0F5',
-}
+  backgroundColor: "#F3F0F5",
+};
 const main = (
   <main style={mainStyles}>
     <p>Prerequisite to get started react.js:</p>
@@ -405,17 +405,17 @@ const main = (
       <li>JavaScript</li>
     </ul>
   </main>
-)
+);
 
 const footerStyles = {
-  backgroundColor: '#61DBFB',
-}
+  backgroundColor: "#61DBFB",
+};
 // JSX element, footer
 const footer = (
   <footer style={footerStyles}>
     <p>Copyright 2020</p>
   </footer>
-)
+);
 
 // JSX element, app
 const app = (
@@ -424,11 +424,11 @@ const app = (
     {main}
     {footer}
   </div>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(app, rootElement)
+ReactDOM.render(app, rootElement);
 ```
 
 ![Inline styling JSX](../images/styling_jsx_inline_create_react_app.png)
@@ -437,8 +437,8 @@ Now, lets apply an internal style, we put all the CSS on the header of the index
 
 ```js
 // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 // JSX element, header
 const header = (
   <header>
@@ -450,14 +450,14 @@ const header = (
       <small>Date: Oct 1, 2020</small>
     </div>
   </header>
-)
+);
 
 // JSX element, main
 const main = (
   <main>
     <div className='main-wrapper'>
       <p>
-        Prerequisite to get started{' '}
+        Prerequisite to get started{" "}
         <strong>
           <em>react.js</em>
         </strong>
@@ -470,7 +470,7 @@ const main = (
       </ul>
     </div>
   </main>
-)
+);
 
 // JSX element, footer
 const footer = (
@@ -479,7 +479,7 @@ const footer = (
       <p>Copyright 2020</p>
     </div>
   </footer>
-)
+);
 
 // JSX element, app
 const app = (
@@ -488,11 +488,11 @@ const app = (
     {main}
     {footer}
   </div>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(app, rootElement)
+ReactDOM.render(app, rootElement);
 ```
 
 ![Inline styling JSX](../images/js_internal_style_create_react_app.png)
@@ -501,19 +501,19 @@ ReactDOM.render(app, rootElement)
 
 ```js
 // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 // To get the root element from the HTML document
 
 // JSX element, header
-const welcome = 'Welcome to 30 Days Of React'
-const title = 'Getting Started React'
-const subtitle = 'JavaScript Library'
+const welcome = "Welcome to 30 Days Of React";
+const title = "Getting Started React";
+const subtitle = "JavaScript Library";
 const author = {
-  firstName: 'Asabeneh',
-  lastName: 'Yetayeh',
-}
-const date = 'Oct 2, 2020'
+  firstName: "Asabeneh",
+  lastName: "Yetayeh",
+};
+const date = "Oct 2, 2020";
 
 // JSX element, header
 const header = (
@@ -528,37 +528,37 @@ const header = (
       <small>Date: {date}</small>
     </div>
   </header>
-)
+);
 
-const numOne = 3
-const numTwo = 2
+const numOne = 3;
+const numTwo = 2;
 
 const result = (
   <p>
     {numOne} + {numTwo} = {numOne + numTwo}
   </p>
-)
+);
 
-const yearBorn = 1820
-const currentYear = new Date().getFullYear()
-const age = currentYear - yearBorn
+const yearBorn = 1820;
+const currentYear = new Date().getFullYear();
+const age = currentYear - yearBorn;
 const personAge = (
   <p>
-    {' '}
+    {" "}
     {author.firstName} {author.lastName} is {age} years old
   </p>
-)
+);
 
 // JSX element, main
-const techs = ['HTML', 'CSS', 'JavaScript']
-const techsFormatted = techs.map((tech) => <li>{tech}</li>)
+const techs = ["HTML", "CSS", "JavaScript"];
+const techsFormatted = techs.map(tech => <li>{tech}</li>);
 
 // JSX element, main
 const main = (
   <main>
     <div className='main-wrapper'>
       <p>
-        Prerequisite to get started{' '}
+        Prerequisite to get started{" "}
         <strong>
           <em>react.js</em>
         </strong>
@@ -569,9 +569,9 @@ const main = (
       {personAge}
     </div>
   </main>
-)
+);
 
-const copyRight = 'Copyright 2020'
+const copyRight = "Copyright 2020";
 
 // JSX element, footer
 const footer = (
@@ -580,7 +580,7 @@ const footer = (
       <p>{copyRight}</p>
     </div>
   </footer>
-)
+);
 
 // JSX element, app
 const app = (
@@ -589,11 +589,11 @@ const app = (
     {main}
     {footer}
   </div>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(app, rootElement)
+ReactDOM.render(app, rootElement);
 ```
 
 ![Inline styling JSX](../images/inecting_data_to_jsx_create_react_app.png)
@@ -605,19 +605,19 @@ Create images folder in the src folder and save an image. For instance let's sav
 
 ```js
 // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
-import asabenehImage from './images/asabeneh.jpg'
+import React from "react";
+import ReactDOM from "react-dom";
+import asabenehImage from "./images/asabeneh.jpg";
 
 const user = (
   <div>
     <img src={asabenehImage} alt='asabeneh image' />
   </div>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(user, rootElement)
+ReactDOM.render(user, rootElement);
 ```
 
 ![Rendering image](../images/rendering_image.png)
@@ -626,19 +626,19 @@ Let's inject the user inside the main JSX element and see the result
 
 ```js
 // index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 // To get the root element from the HTML document
-import asabenehImage from './images/asabeneh.jpg'
+import asabenehImage from "./images/asabeneh.jpg";
 // JSX element, header
-const welcome = 'Welcome to 30 Days Of React'
-const title = 'Getting Started React'
-const subtitle = 'JavaScript Library'
+const welcome = "Welcome to 30 Days Of React";
+const title = "Getting Started React";
+const subtitle = "JavaScript Library";
 const author = {
-  firstName: 'Asabeneh',
-  lastName: 'Yetayeh',
-}
-const date = 'Oct 2, 2020'
+  firstName: "Asabeneh",
+  lastName: "Yetayeh",
+};
+const date = "Oct 2, 2020";
 
 // JSX element, header
 const header = (
@@ -653,43 +653,43 @@ const header = (
       <small>Date: {date}</small>
     </div>
   </header>
-)
+);
 
-const numOne = 3
-const numTwo = 2
+const numOne = 3;
+const numTwo = 2;
 
 const result = (
   <p>
     {numOne} + {numTwo} = {numOne + numTwo}
   </p>
-)
+);
 
-const yearBorn = 1820
-const currentYear = new Date().getFullYear()
-const age = currentYear - yearBorn
+const yearBorn = 1820;
+const currentYear = new Date().getFullYear();
+const age = currentYear - yearBorn;
 const personAge = (
   <p>
-    {' '}
+    {" "}
     {author.firstName} {author.lastName} is {age} years old
   </p>
-)
+);
 
 // JSX element, main
-const techs = ['HTML', 'CSS', 'JavaScript']
-const techsFormatted = techs.map((tech) => <li>{tech}</li>)
+const techs = ["HTML", "CSS", "JavaScript"];
+const techsFormatted = techs.map(tech => <li>{tech}</li>);
 
 const user = (
   <div>
     <img src={asabenehImage} alt='asabeneh image' />
   </div>
-)
+);
 
 // JSX element, main
 const main = (
   <main>
     <div className='main-wrapper'>
       <p>
-        Prerequisite to get started{' '}
+        Prerequisite to get started{" "}
         <strong>
           <em>react.js</em>
         </strong>
@@ -701,9 +701,9 @@ const main = (
       {user}
     </div>
   </main>
-)
+);
 
-const copyRight = 'Copyright 2020'
+const copyRight = "Copyright 2020";
 
 // JSX element, footer
 const footer = (
@@ -712,7 +712,7 @@ const footer = (
       <p>{copyRight}</p>
     </div>
   </footer>
-)
+);
 
 // JSX element, app
 const app = (
@@ -721,11 +721,11 @@ const app = (
     {main}
     {footer}
   </div>
-)
+);
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 // we render the JSX element using the ReactDOM package
-ReactDOM.render(app, rootElement)
+ReactDOM.render(app, rootElement);
 ```
 
 ![All JSX together final](../images/all_jsx_final.png)
